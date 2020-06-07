@@ -21,22 +21,18 @@ class _QuoteDayScreenState extends State<QuoteDayScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Quote of the Day'),
-        ),
-        body: FutureBuilder<Quote>(
-            future: quotefuture,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return QuoteWidget(
-                    snapshot.data.quoteText, snapshot.data.author);
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }));
+    return FutureBuilder<Quote>(
+        future: quotefuture,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return QuoteWidget(snapshot.data.quoteText,
+                snapshot.data.quoteAuthor, snapshot.data.quoteId);
+          } else if (snapshot.hasError) {
+            return Text("${snapshot.error}");
+          }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
   }
 }
