@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import './favorities_quotes_screen.dart';
+import './favorites_quotes_screen.dart';
 import './quote_day_screen.dart';
 
-class TabsScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
+  static const roueName = '/HomeScreen';
   @override
-  _TabsScreenState createState() => _TabsScreenState();
+  _HomeScreen createState() => _HomeScreen();
 }
 
-class _TabsScreenState extends State<TabsScreen> {
+class _HomeScreen extends State<HomeScreen> {
   List<Map<String, Object>> _pages;
   int _selectedPageIndex = 0;
 
@@ -25,7 +26,7 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Quote of the Day',
       },
       {
-        'page': FavoritiesQuotesScreen(),
+        'page': FavoritesQuotesScreen(),
         'title': 'Your Favorite Quotes',
       },
     ];
