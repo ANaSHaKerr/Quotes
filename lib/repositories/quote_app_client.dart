@@ -12,7 +12,7 @@ class QuoteApiClient {
   };
 
   Future<Quote> fetchQuoteDay() async {
-    final client = new http.Client();
+    final client = http.Client();
     final url = '$_baseUrl/qotd';
     final response = await client.get(url, headers: _headers);
 
@@ -21,7 +21,24 @@ class QuoteApiClient {
     }
 
     final json = jsonDecode(response.body);
-    print(response.body.toString());
+    //print(response.body.toString());
     return Quote.fromJson(json);
+  }
+
+  static Future<List<Author>> fetchAuthors() async {
+    final client = http.Client();
+    final url = '$_baseUrl/typeahead';
+    final response = await client.get(url, headers: _headers);
+    if (response.statusCode != 200) {
+      throw new Exception('Failed to load Quote');
+    }
+
+    final json = jsonDecode(response.body);
+    print(response.body.toString());
+    List<dynamic> data = json['authors'];
+    AuthorList authorList = AuthorList.fromJson(data);
+    List<Author> list = authorList.authors;
+    print(authorList.authors[0].name);
+    return list;
   }
 }

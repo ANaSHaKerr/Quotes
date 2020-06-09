@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 
-import '../model/Quote.dart';
+import '../model/quote.dart';
 import '../database/database_helper.dart';
 
 class QuoteWidget extends StatefulWidget {

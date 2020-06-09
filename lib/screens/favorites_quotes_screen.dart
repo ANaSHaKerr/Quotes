@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../database/database_helper.dart';
-import '../model/Quote.dart';
+import '../model/quote.dart';
 
 class FavoritesQuotesScreen extends StatefulWidget {
   @override

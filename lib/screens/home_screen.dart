@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './favorites_quotes_screen.dart';
 import './quote_day_screen.dart';
+import './search_quote_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const roueName = '/HomeScreen';
@@ -29,6 +30,7 @@ class _HomeScreen extends State<HomeScreen> {
         'page': FavoritesQuotesScreen(),
         'title': 'Your Favorite Quotes',
       },
+      {'page': SearchQuoteScreen(), "title": 'Search Author'},
     ];
     super.initState();
   }
@@ -57,6 +59,11 @@ class _HomeScreen extends State<HomeScreen> {
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.favorite),
             title: Text('Favorites'),
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Theme.of(context).primaryColor,
+            icon: Icon(Icons.search),
+            title: Text('Search by Author'),
           ),
         ],
       ),
