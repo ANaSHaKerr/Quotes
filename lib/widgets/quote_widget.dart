@@ -4,6 +4,7 @@ import 'package:share/share.dart';
 
 import '../model/Quote.dart';
 import '../database/database_helper.dart';
+import '../widgets/read_quote_button.dart';
 
 class QuoteWidget extends StatefulWidget {
   final int id;
@@ -87,7 +88,8 @@ class _QuoteWidgetState extends State<QuoteWidget>
                         backgroundColor: Colors.black,
                       );
                       Scaffold.of(context).showSnackBar(snackBar);
-                    })
+                    }),
+                ReadQuoteButton(widget.text),
               ],
             ),
           ],
