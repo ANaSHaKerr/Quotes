@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../database/database_helper.dart';
 import '../model/Quote.dart';
+import '../widgets/read_quote_button.dart';
 
 class FavoritesQuotesScreen extends StatefulWidget {
   @override
@@ -93,6 +94,8 @@ class _FavoritesQuotesScreenState extends State<FavoritesQuotesScreen> {
                         child: Card(
                           child: ListTile(
                             contentPadding: EdgeInsets.all(10),
+                            trailing:
+                                ReadQuoteButton(snapshot.data[index].quoteText),
                             title: Text(
                               snapshot.data[index].quoteText,
                               style: TextStyle(

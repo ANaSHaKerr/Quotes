@@ -13,7 +13,11 @@ class _ReadQuoteButtonState extends State<ReadQuoteButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        icon: Icon(Icons.volume_up),
+        icon: Icon(
+          Icons.volume_up,
+          size: 32,
+          color: Colors.black87,
+        ),
         onPressed: () {
           readQuote(widget.text);
         });
