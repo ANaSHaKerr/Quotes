@@ -88,17 +88,25 @@ class _FavoritesQuotesScreenState extends State<FavoritesQuotesScreen> {
                                   ],
                                 ));
                       },
-                      child: Card(
-                        child: ListTile(
-                          title: Text(
-                            snapshot.data[index].quoteText,
-                            style: TextStyle(
-                                fontSize: 20.0, fontFamily: 'quoteScript'),
-                          ),
-                          subtitle: Text(
-                            snapshot.data[index].quoteAuthor,
-                            style: TextStyle(
-                                fontSize: 17.0, fontFamily: 'quoteScript'),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Card(
+                          child: ListTile(
+                            contentPadding: EdgeInsets.all(10),
+                            title: Text(
+                              snapshot.data[index].quoteText,
+                              style: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                            ),
+                            subtitle: Padding(
+                              padding: const EdgeInsets.only(top: 15.0),
+                              child: Text(
+                                snapshot.data[index].quoteAuthor,
+                                style: TextStyle(
+                                    fontSize: 17.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
                           ),
                         ),
                       ),
