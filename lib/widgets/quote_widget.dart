@@ -44,7 +44,7 @@ class _QuoteWidgetState extends State<QuoteWidget>
               margin: EdgeInsets.all(20),
               child: Text(
                 widget.text,
-                style: TextStyle(fontSize: 30, color: Colors.indigo),
+                style: TextStyle(fontSize: 30, color: Colors.black87),
               ),
             ),
             SizedBox(
@@ -52,13 +52,19 @@ class _QuoteWidgetState extends State<QuoteWidget>
             ),
             Text(
               widget.author,
-              style: TextStyle(fontSize: 23, color: Colors.black87),
+              style: TextStyle(
+                  fontSize: 23,
+                  color: Colors.black45,
+                  fontWeight: FontWeight.bold),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                    icon: Icon(Icons.share),
+                    icon: Icon(
+                      Icons.share,
+                      size: 32,
+                    ),
                     onPressed: () {
                       Share.share('${widget.text}\n${widget.author}');
                     }),
@@ -66,6 +72,7 @@ class _QuoteWidgetState extends State<QuoteWidget>
                     icon: Icon(
                       Icons.favorite,
                       color: Colors.red,
+                      size: 32,
                     ),
                     onPressed: () {
                       Quote q = Quote(
