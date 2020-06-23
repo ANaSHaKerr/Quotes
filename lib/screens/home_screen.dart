@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './favorites_quotes_screen.dart';
 import './quote_day_screen.dart';
-import './search_quote_screen.dart';
+import 'authors_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const roueName = '/HomeScreen';
@@ -30,7 +30,7 @@ class _HomeScreen extends State<HomeScreen> {
         'page': FavoritesQuotesScreen(),
         'title': 'Your Favorite Quotes',
       },
-      {'page': SearchQuoteScreen(), "title": 'Search Author'},
+      {'page': AuthorsScreen(), "title": 'Search Author'},
     ];
     super.initState();
   }
