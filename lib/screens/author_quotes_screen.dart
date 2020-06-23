@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../repositories/quote_app_client.dart';
-import '../model/quotes_list.dart';
+import '../model/models.dart';
 
 class AuthorQuotesScreen extends StatefulWidget {
   static const roueName = '/AuthorQuotesScreen';

@@ -1,2 +1,3 @@
 export './quote.dart';
-export './authorlist.dart';
+export './authors_list.dart';
+export './quotes_list.dart';

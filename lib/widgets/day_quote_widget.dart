@@ -5,17 +5,17 @@ import 'package:share/share.dart';
 import '../model/quote.dart';
 import '../database/database_helper.dart';
 
-class QuoteWidget extends StatefulWidget {
+class DayQuoteWidget extends StatefulWidget {
   final int id;
   final String text;
   final String author;
-  QuoteWidget(this.text, this.author, this.id);
+  DayQuoteWidget(this.text, this.author, this.id);
 
   @override
-  _QuoteWidgetState createState() => _QuoteWidgetState();
+  _DayQuoteWidgetState createState() => _DayQuoteWidgetState();
 }
 
-class _QuoteWidgetState extends State<QuoteWidget>
+class _DayQuoteWidgetState extends State<DayQuoteWidget>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
