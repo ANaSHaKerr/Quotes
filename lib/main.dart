@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
-        accentColor: Colors.blueGrey,
+        accentColor: Colors.indigo[900],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashScreen(),
@@ -35,7 +35,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   startTime() async {
-    var _duration = Duration(seconds: 4);
+    var _duration = Duration(seconds: 3);
     return Timer(_duration, navigationPage);
   }
 
