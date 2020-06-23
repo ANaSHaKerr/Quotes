@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../database/database_helper.dart';
-import '../model/Quote.dart';
+import '../model/models.dart';
 import '../widgets/read_quote_button.dart';
 
 class FavoritesQuotesScreen extends StatefulWidget {

@@ -35,65 +35,61 @@ class _DayQuoteWidgetState extends State<DayQuoteWidget>
     MediaQueryData queryData = MediaQuery.of(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-      child: Container(
-        width: queryData.size.width,
-        height: queryData.size.height,
-        child: Column(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(20),
-              child: Text(
-                widget.text,
-                style: TextStyle(fontSize: 30, color: Colors.black87),
-              ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(20),
+            child: Text(
+              widget.text,
+              style: TextStyle(fontSize: 30, color: Colors.black87),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              widget.author,
-              style: TextStyle(
-                  fontSize: 23,
-                  color: Colors.black45,
-                  fontWeight: FontWeight.bold),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                IconButton(
-                    icon: Icon(
-                      Icons.share,
-                      size: 32,
-                    ),
-                    onPressed: () {
-                      Share.share('${widget.text}\n${widget.author}');
-                    }),
-                IconButton(
-                    icon: Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                      size: 32,
-                    ),
-                    onPressed: () {
-                      Quote q = Quote(
-                          quoteId: widget.id,
-                          quoteText: widget.text,
-                          quoteAuthor: widget.author);
-                      dbHelper.saveQuote(q);
-                      final snackBar = SnackBar(
-                        content: Text(
-                          'Added to favorites',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                        backgroundColor: Colors.black,
-                      );
-                      Scaffold.of(context).showSnackBar(snackBar);
-                    }),
-                ReadQuoteButton(widget.text),
-              ],
-            ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            widget.author,
+            style: TextStyle(
+                fontSize: 23,
+                color: Colors.black45,
+                fontWeight: FontWeight.bold),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              IconButton(
+                  icon: Icon(
+                    Icons.share,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                    Share.share('${widget.text}\n${widget.author}');
+                  }),
+              IconButton(
+                  icon: Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                    Quote q = Quote(
+                        quoteId: widget.id,
+                        quoteText: widget.text,
+                        quoteAuthor: widget.author);
+                    dbHelper.saveQuote(q);
+                    final snackBar = SnackBar(
+                      content: Text(
+                        'Added to favorites',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                      backgroundColor: Colors.black,
+                    );
+                    Scaffold.of(context).showSnackBar(snackBar);
+                  }),
+              ReadQuoteButton(widget.text),
+            ],
+          ),
+        ],
       ),
     );
   }
