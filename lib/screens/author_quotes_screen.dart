@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:quotesapp/widgets/read_quote_button.dart';
 
 import '../repositories/quote_app_client.dart';
 import '../model/models.dart';
+import '../database/database_helper.dart';
 
 class AuthorQuotesScreen extends StatefulWidget {
   static const roueName = '/AuthorQuotesScreen';
@@ -14,11 +16,13 @@ class AuthorQuotesScreen extends StatefulWidget {
 
 class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
   Future<List<Quote>> futureQuotes;
+  var dbHelper;
   @override
   void initState() {
     super.initState();
     final QuoteApiClient client = QuoteApiClient();
     futureQuotes = client.fetchQuotesFromAuthor(widget.permalink);
+    dbHelper = DatabaseHelper();
   }
 
   @override
@@ -43,6 +47,35 @@ class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
                             style: TextStyle(
                               fontSize: 20.0,
                             ),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              ReadQuoteButton(listQuotes[index].quoteText),
+                              IconButton(
+                                  icon: Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                    size: 32,
+                                  ),
+                                  onPressed: () {
+                                    Quote q = Quote(
+                                        quoteId: listQuotes[index].quoteId,
+                                        quoteText: listQuotes[index].quoteText,
+                                        quoteAuthor:
+                                            listQuotes[index].quoteAuthor);
+                                    dbHelper.saveQuote(q);
+                                    final snackBar = SnackBar(
+                                      content: Text(
+                                        'Added to favorites',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 15),
+                                      ),
+                                      backgroundColor: Colors.black,
+                                    );
+                                    Scaffold.of(context).showSnackBar(snackBar);
+                                  }),
+                            ],
                           ),
                           subtitle: Text(
                             listQuotes[index].quoteAuthor,
