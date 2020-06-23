@@ -7,9 +7,9 @@ class Quote {
 
   factory Quote.fromJson(dynamic json) {
     return Quote(
-        quoteAuthor: json['quote']['author'],
-        quoteText: json['quote']['body'],
-        quoteId: json['quote']['id']);
+        quoteAuthor: json['author'],
+        quoteText: json['body'],
+        quoteId: json['id']);
   }
 
   Map<String, dynamic> toMap() {

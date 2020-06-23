@@ -12,7 +12,7 @@ class QuoteApiClient {
   };
 
   Future<Quote> fetchQuoteDay() async {
-    final client = new http.Client();
+    final client = http.Client();
     final url = '$_baseUrl/qotd';
     final response = await client.get(url, headers: _headers);
 
@@ -21,7 +21,37 @@ class QuoteApiClient {
     }
 
     final json = jsonDecode(response.body);
+    final quote = json['quote'];
+    return Quote.fromJson(quote);
+  }
+
+  Future<List<Author>> fetchAuthors() async {
+    final client = http.Client();
+    final url = '$_baseUrl/typeahead';
+    final response = await client.get(url, headers: _headers);
+    if (response.statusCode != 200) {
+      throw new Exception('Failed to load Quote');
+    }
+
+    final json = jsonDecode(response.body);
     print(response.body.toString());
-    return Quote.fromJson(json);
+    AuthorsList authorList = AuthorsList.fromJson(json);
+    List<Author> list = authorList.authors;
+    return list;
+  }
+
+  Future<List<Quote>> fetchQuotesFromAuthor(String author) async {
+    final client = http.Client();
+    final url = '$_baseUrl/quotes/?filter=$author&type=author';
+    final response = await client.get(url, headers: _headers);
+    if (response.statusCode != 200) {
+      throw new Exception('Failed to load Quote');
+    }
+
+    final json = jsonDecode(response.body);
+    //print(response.body.toString());
+    QuotesList quotesList = QuotesList.fromJson(json);
+    List<Quote> list = quotesList.quotes;
+    return list;
   }
 }
