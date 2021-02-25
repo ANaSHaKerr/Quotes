@@ -54,4 +54,18 @@ class QuoteApiClient {
     List<Quote> list = quotesList.quotes;
     return list;
   }
+  Future<List<Quote>> fetchQuotesList() async {
+    final client = http.Client();
+    final url = '$_baseUrl/quotes';
+    final response = await client.get(url, headers: _headers);
+    if (response.statusCode != 200) {
+      throw new Exception('Failed to load Quote');
+    }
+
+    final json = jsonDecode(response.body);
+    //print(response.body.toString());
+    QuotesList quotesList = QuotesList.fromJson(json);
+    List<Quote> list = quotesList.quotes;
+    return list;
+  }
 }

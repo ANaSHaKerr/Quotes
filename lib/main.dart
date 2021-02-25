@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Quotes app',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
-        accentColor: Colors.indigo[900],
+        primaryColor: Color(0xff232441) ,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashScreen(),
@@ -52,47 +52,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(color: Colors.lightBlueAccent),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 50,
-                        child: Icon(
-                          Icons.format_quote,
-                          color: Colors.black,
-                          size: 50,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10),
-                      ),
-                      Text(
-                        'My Quotes',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+      body: Container(
+        decoration: BoxDecoration(color: Color(0xff232441),),
+        child: Center(
+         child: Image.asset("assets/logo.png",width: 200,)
+        ),
       ),
     );
   }

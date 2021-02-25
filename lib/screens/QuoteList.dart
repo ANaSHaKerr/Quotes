@@ -1,38 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quotesapp/repositories/quote_app_client.dart';
 import 'package:quotesapp/widgets/read_quote_button.dart';
-
-import '../repositories/quote_app_client.dart';
-import '../model/models.dart';
 import '../database/database_helper.dart';
+import '../model/models.dart';
 
-class AuthorQuotesScreen extends StatefulWidget {
-  static const roueName = '/AuthorQuotesScreen';
-  final String author;
-  final String permalink;
-  AuthorQuotesScreen(this.author, this.permalink);
+class QuoteList extends StatefulWidget {
+
   @override
-  _AuthorQuotesScreenState createState() => _AuthorQuotesScreenState();
+  _QuoteListState createState() => _QuoteListState();
 }
 
-class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
+class _QuoteListState extends State<QuoteList> {
   Future<List<Quote>> futureQuotes;
   var dbHelper;
   @override
   void initState() {
     super.initState();
     final QuoteApiClient client = QuoteApiClient();
-    futureQuotes = client.fetchQuotesFromAuthor(widget.permalink);
+    futureQuotes = client.fetchQuotesList();
     dbHelper = DatabaseHelper();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-        appBar: AppBar(
-          title: Text(widget.author),
-        ),
+        backgroundColor: Theme.of(context).primaryColor,
+
         body: FutureBuilder<List<Quote>>(
             future: futureQuotes,
             builder: (context, snapshot) {
@@ -67,7 +61,7 @@ class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
                                         quoteId: listQuotes[index].quoteId,
                                         quoteText: listQuotes[index].quoteText,
                                         quoteAuthor:
-                                            listQuotes[index].quoteAuthor);
+                                        listQuotes[index].quoteAuthor);
                                     dbHelper.saveQuote(q);
                                     final snackBar = SnackBar(
                                       content: Text(
@@ -79,6 +73,7 @@ class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
                                     );
                                     Scaffold.of(context).showSnackBar(snackBar);
                                   }),
+
                             ],
                           ),
                           subtitle: Padding(

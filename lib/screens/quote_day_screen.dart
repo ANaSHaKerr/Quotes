@@ -30,8 +30,11 @@ class _QuoteDayScreenState extends State<QuoteDayScreen> {
           } else if (snapshot.hasError) {
             return Text("${snapshot.error}");
           }
-          return Center(
-            child: CircularProgressIndicator(),
+          return Container(
+            color:Theme.of(context).primaryColor,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
           );
         });
   }
