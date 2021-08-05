@@ -10,12 +10,12 @@ Each time we enter this screen a new random quote is displayed. The user can: <b
 * add a quote to your favorites
 * share a quote
 
-![login](screens/quoteofday.PNG)
+<img src="https://media-exp1.licdn.com/dms/image/C4D22AQEHDpny7yCBCQ/feedshare-shrink_800/0/1613326208024?e=1631145600&v=beta&t=P6sMSSZZif7y9sXJSvbaNuL1y7cHzrIqw-6DUYsuAPA">
 ### Favorites quotes screen
-![login](screens/favorites.PNG)
+<img src="https://media-exp1.licdn.com/dms/image/C4D22AQH1kbf3UaT6Eg/feedshare-shrink_800/0/1613326209687?e=1631145600&v=beta&t=iSMRwXBsDwnycDCBqd8j-f7lj2GcMk4XHiFDmAlFI6U">
 ### Delete favorite quote
-![login](screens/delete.PNG)
+<img src="https://media-exp1.licdn.com/dms/image/C4D22AQEcIOvNujZXBg/feedshare-shrink_800/0/1613326210495?e=1631145600&v=beta&t=be1DZrQ1Dk_utkNAyPJ-r2q__fW44B3tcgrW2vI40-Y">
 ### Search quote by author
-![login](screens/findauthor.PNG)
+<img src="https://media-exp1.licdn.com/dms/image/C4D22AQGthFHrK3cjgg/feedshare-shrink_800/0/1613326216817?e=1631145600&v=beta&t=bsMgMuBdLfu360NPsjnzBs7C2g9XcFzYC9bQCNCzw8Y">
 ### Author's quotes
-![login](screens/quotes.PNG)
+<img src="https://media-exp1.licdn.com/dms/image/C4D22AQFd6YXREsl6Rg/feedshare-shrink_800/0/1613326213722?e=1631145600&v=beta&t=O9O97pPiEYWltVNhKO39iMObKiCeCGHTY27bj6AyKb4">
